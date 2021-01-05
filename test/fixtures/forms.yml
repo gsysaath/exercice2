@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  address_departure: MyString
+  address_destination: MyString
+  delay: false
+  user: one
+  status: false
+
+two:
+  type: 
+  address_departure: MyString
+  address_destination: MyString
+  delay: false
+  user: two
+  status: false

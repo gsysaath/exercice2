@@ -1,0 +1,60 @@
+<div class="container">
+  <h1 class="text-center">Estimation de votre indemnisation</h1>
+  <%= simple_form_for @form do |f| %>
+    <h2>Veuillez indiquer le trajet du vol:</h2>
+    <div class="address_wrapper">
+      <%= f.input :address_departure, placeholder: 'Ville de depart', label: false, input_html: {class: 'address-box'} %>
+      <%= f.input :address_destination, placeholder: "Ville d'arrivee", label: false, input_html: {class: 'address-box'} %>
+    </div>
+    <h2>Il s'agit d'un:</h2>
+    <%= f.input :genre,
+              as: :radio_buttons,
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'genre-wrapper',
+              item_wrapper_class: 'genre-item',
+              input_html: {class: 'genre-selector'},
+              collection: Form::GENRES %>
+    <div class="retard">
+      <h2>Le temps de retard etait:</h2>
+      <%= f.input :delay,
+                  as: :radio_buttons,
+                  label: false,
+                  collection: Form::RETARD_DELAYS %>
+      <h2>Pour quelle raison?</h2>
+      <%= f.input :reason,
+                  as: :radio_buttons,
+                  label: false,
+                  collection: Form::RETARD_REASONS %>
+    </div>
+    <div class="surbooking hidden">
+      <h2>Vous avez été prévenu:</h2>
+      <%= f.input :delay,
+                  as: :radio_buttons,
+                  label: false,
+                  collection: Form::SURBOOKING_DELAYS %>
+      <h2>Vous n'êtes pas monté a bord:</h2>
+      <%= f.input :reason,
+                  as: :radio_buttons,
+                  label: false,
+                  collection: Form::SURBOOKING_REASONS %>
+    </div>
+    <div class="annulation hidden">
+      <h2>Vous avez été informé il y a:</h2>
+      <%= f.input :delay,
+                  as: :radio_buttons,
+                  label: false,
+                  collection: Form::ANNULATION_DELAYS %>
+      <h2>On vous a proposé un réacheminement avec:</h2>
+      <%= f.input :reason,
+                  as: :radio_buttons,
+                  label: false,
+                  collection: Form::ANNULATION_REASONS %>
+    </div>
+    <div class="wrapper-valid">
+      <%= f.button :submit, "Lancer l'estimation!",
+              class: 'button-valid' %>
+    </div>
+  <% end %>
+
+</div>
+

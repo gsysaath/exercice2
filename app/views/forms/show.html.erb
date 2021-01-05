@@ -1,0 +1,18 @@
+<p>
+  COORDONEES <%= [@address_departure.latitude, @address_departure.longitude] %> <br>
+  PAYS <%= @address_departure.country %>
+</p>
+
+<p>
+  COORDONEES <%= [@address_destination.latitude, @address_destination.longitude] %> <br>
+  PAYS <%= @address_destination.country %>
+</p>
+
+
+
+<p>
+  <%= @distance %> km
+</p>
+
+<% if @form.delay == Form::RETARD_DELAYS[1] || Form::RETARD_REASONS[0..1].include? (@form.reason)
+  || @form.reason == Form::SURBOOKING_REASONS[1] || %>
